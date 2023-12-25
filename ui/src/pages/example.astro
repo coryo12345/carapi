@@ -1,0 +1,17 @@
+---
+import VehicleCards from "@/components/examples/vehicle-cards";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+  <article>
+    <h1 class="text-2xl font-bold text-center my-2">Vehicle Examples</h1>
+    <p class="text-center mb-2">
+      Vehicle data is retrieved from API. See <a
+        href="/docs"
+        class="text-primary">docs</a
+      > for API information.
+    </p>
+    <VehicleCards client:load />
+  </article>
+</Layout>

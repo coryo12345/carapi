@@ -1,0 +1,137 @@
+---
+import { DocsExample } from "@/components/examples/docs-example";
+import Layout from "../layouts/Layout.astro";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+
+const randomResponse = JSON.stringify(
+  [
+    {
+      id: 210,
+      make: "Chevrolet",
+      model: "Trooper",
+      years: [{ start: "1981", end: "1991" }],
+      bodyStyle: "",
+      region: "Indonesia",
+      description: "Original Model: Isuzu Trooper",
+      image:
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/1st-Isuzu-Trooper-1.jpg/100px-1st-Isuzu-Trooper-1.jpg",
+    },
+    {
+      id: 629,
+      make: "Ford",
+      model: "Anglia",
+      years: [{ start: "1939", end: "1967" }],
+      bodyStyle: "Cars",
+      region: "UK",
+      description: "",
+      image:
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/1948_Ford_Anglia_A54A_Tourer.jpg/100px-1948_Ford_Anglia_A54A_Tourer.jpg",
+    },
+  ],
+  null,
+  2
+);
+
+const searchResponse = JSON.stringify(
+  [
+    {
+      id: 1,
+      make: "Audi",
+      model: "A1",
+      years: [{ start: "2010", end: "Present" }],
+      bodyStyle: "Cars",
+      region: "",
+      description: "B-segment/subcompact/supermini hatchback.",
+      image:
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Audi_A1_Sportback_GB_IMG_6036.jpg/200px-Audi_A1_Sportback_GB_IMG_6036.jpg",
+    },
+  ],
+  null,
+  2
+);
+---
+
+<Layout>
+  <article class="m-2 flex flex-col gap-4">
+    <Card>
+      <CardHeader>
+        <CardTitle>API Documentation</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <p>
+          The following documentation explains the available endpoints available
+          to retrieve vehicle data.
+        </p>
+        <br />
+        <p>
+          The API is available on <a
+            class="text-primary hover:underline"
+            href="https://car.dioapi.com"
+          >
+            car.dioapi.com
+          </a>
+        </p>
+      </CardContent>
+    </Card>
+
+    <Card>
+      <CardHeader>
+        <CardTitle>Random Vehicles</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <p>
+          <strong>Endpoint:</strong>
+          <code class="text-primary">/api/random</code>
+        </p>
+        <p>
+          Returns a list of randomly selected vehicles. By default, returns a
+          list with only one vehicle.
+        </p>
+        <h3 class="text-lg font-semibold mt-1">Query Parameters</h3>
+        <p><strong>count</strong> - number</p>
+        <p>
+          Specify the number of vehicles to return in the response. Default: 1
+        </p>
+        <p>Required: false</p>
+        <h3 class="text-lg font-semibold mt-1">Example</h3>
+        <DocsExample
+          endpoint="/api/random"
+          response={randomResponse}
+          client:load
+        />
+      </CardContent>
+    </Card>
+
+    <Card>
+      <CardHeader>
+        <CardTitle>Search Vehicles</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <p>
+          <strong>Endpoint:</strong>
+          <code class="text-primary">/api/search</code>
+        </p>
+        <p>
+          Returns a list of randomly selected vehicles. By default, returns a
+          list of all matching vehicles.
+        </p>
+        <h3 class="text-lg font-semibold mt-1">Query Parameters</h3>
+        <p><strong>search</strong> - string</p>
+        <p>
+          A search string to search for vehicles. Searches on make, model,
+          region & description.
+        </p>
+        <p>Required: true</p>
+        <p class="mt-2"><strong>limit</strong> - number</p>
+        <p>A maximum number of vehicles to return.</p>
+        <p>Required: false</p>
+        <h3 class="text-lg font-semibold mt-1">Example</h3>
+        <DocsExample
+          endpoint="/api/search?search=aud&limit=1"
+          response={searchResponse}
+          client:load
+        />
+      </CardContent>
+    </Card>
+  </article>
+</Layout>

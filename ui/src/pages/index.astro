@@ -1,0 +1,140 @@
+---
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import Layout from "../layouts/Layout.astro";
+import Link from "@/components/Link";
+
+const SOURCES: { link: string; desc: string }[] = [
+  { link: "https://en.wikipedia.org/wiki/List_of_Audi_vehicles", desc: "Audi" },
+  { link: "https://en.wikipedia.org/wiki/List_of_BMW_vehicles", desc: "BMW" },
+  {
+    link: "https://en.wikipedia.org/wiki/List_of_Chevrolet_vehicles",
+    desc: "Chevrolet",
+  },
+  {
+    link: "https://en.wikipedia.org/wiki/List_of_Dodge_vehicles",
+    desc: "Dodge",
+  },
+  { link: "https://en.wikipedia.org/wiki/List_of_Ford_vehicles", desc: "Ford" },
+  {
+    link: "https://en.wikipedia.org/wiki/List_of_Honda_automobiles",
+    desc: "Honda",
+  },
+  {
+    link: "https://en.wikipedia.org/wiki/List_of_Mercedes-Benz_vehicles",
+    desc: "Mercedes-Benz",
+  },
+  {
+    link: "https://en.wikipedia.org/wiki/List_of_Nissan_vehicles",
+    desc: "Nissan",
+  },
+  {
+    link: "https://en.wikipedia.org/wiki/List_of_Toyota_vehicles",
+    desc: "Toyota",
+  },
+  {
+    link: "https://en.wikipedia.org/wiki/List_of_Volkswagen_vehicles",
+    desc: "Volkswagen",
+  },
+];
+---
+
+<Layout>
+  <article class="m-2 flex flex-col gap-4">
+    <Card>
+      <CardHeader>
+        <CardTitle>
+          <h1 class="text-2xl font-bold">About CarApi</h1>
+        </CardTitle>
+      </CardHeader>
+      <CardContent>
+        <p class="mb-2">
+          CarApi is a project created to expiriment with a handful of
+          technologies. It is an API that provides some minimal data on vehicles
+          from a variety of manufacturers.
+        </p>
+        <p>
+          The data available is sourced from public data online. It has been
+          designed in such a way to make it easy to add new manufacturers, and
+          update the data if it changes over time.
+        </p>
+      </CardContent>
+    </Card>
+
+    <Card>
+      <CardHeader>
+        <CardTitle>
+          <h2 id="technologies" class="text-xl font-bold">Technologies Used</h2>
+        </CardTitle>
+      </CardHeader>
+      <CardContent>
+        <p class="mb-2">
+          View the source on GitHub here:
+          <a href="/#" class="text-primary hover:underline">TODO</a>
+        </p>
+        <section class="mb-2">
+          <h3 class="text-lg font-semibold">UI</h3>
+          <ul class="ml-4 list-disc">
+            <li><Link href="https://astro.build/">Astro</Link></li>
+            <li><Link href="https://react.dev/">React</Link></li>
+            <li><Link href="https://ui.shadcn.com/">shadcn/ui</Link></li>
+            <li><Link href="https://tailwindcss.com/">Tailwind CSS</Link></li>
+            <li><Link href="https://lucide.dev/">Lucide Icons</Link></li>
+          </ul>
+        </section>
+        <section class="mb-2">
+          <h3 class="text-lg font-semibold">API</h3>
+          <ul class="ml-4 list-disc">
+            <li><Link href="https://go.dev/">Go</Link></li>
+            <li><Link href="https://gofiber.io/">Fiber</Link></li>
+            <li>Deployed on <Link href="https://fly.io/">Fly.io</Link></li>
+          </ul>
+        </section>
+        <section class="mb-2">
+          <h3 class="text-lg font-semibold">Database</h3>
+          <ul class="ml-4 list-disc">
+            <li><Link href="https://turso.tech/">Turso</Link></li>
+            <li>
+              Schema managed with
+              <Link href="https://orm.drizzle.team/">Drizzle ORM</Link>
+            </li>
+          </ul>
+        </section>
+        <section class="mb-2">
+          <h3 class="text-lg font-semibold">Data Scraping</h3>
+          <ul class="ml-4 list-disc">
+            <li><Link href="https://playwright.dev/">Playwright</Link></li>
+          </ul>
+        </section>
+      </CardContent>
+    </Card>
+
+    <Card>
+      <CardHeader>
+        <CardTitle>
+          <h2 id="sources" class="text-xl font-bold">Sources</h2>
+        </CardTitle>
+        <CardDescription>Sources of data used in API</CardDescription>
+      </CardHeader>
+      <CardContent>
+        <ul class="ml-4">
+          {
+            SOURCES.map((source) => (
+              <li class="list-item list-disc">
+                <a href={source.link} class="text-primary hover:underline">
+                  {source.link}
+                </a>{" "}
+                - {source.desc}
+              </li>
+            ))
+          }
+        </ul>
+      </CardContent>
+    </Card>
+  </article>
+</Layout>

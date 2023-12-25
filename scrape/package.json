@@ -1,0 +1,28 @@
+{
+  "name": "scrape",
+  "version": "1.0.0",
+  "description": "web scraper for car models",
+  "main": "index.js",
+  "scripts": {
+    "setup": "playwright install",
+    "build": "esbuild src/index.ts --bundle --platform=node --outdir=dist --packages=external",
+    "start": "node dist/index.js",
+    "lint": "prettier .",
+    "lint:fix": "prettier . --write",
+    "generate": "drizzle-kit generate:sqlite"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@libsql/client": "^0.4.0-pre.5",
+    "dotenv": "^16.3.1",
+    "drizzle-orm": "^0.29.1",
+    "playwright": "^1.40.1"
+  },
+  "devDependencies": {
+    "drizzle-kit": "^0.20.6",
+    "esbuild": "^0.19.8",
+    "prettier": "3.1.0",
+    "typescript": "^5.3.2"
+  }
+}
