@@ -9,6 +9,6 @@ export default defineConfig({
   output: "server",
   adapter: vercel(),
   redirects: {
-    '/api': 'https://car.dioapi.com/api'
+    '/api': 'https://carapi.fly.dev/api'
   }
 });
