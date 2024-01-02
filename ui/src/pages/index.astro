@@ -56,12 +56,15 @@ const SOURCES: { link: string; desc: string }[] = [
         <p class="mb-2">
           CarApi is a project created to expiriment with a handful of
           technologies. It is an API that provides some minimal data on vehicles
-          from a variety of manufacturers.
+          from a variety of manufacturers. It is a purely educational project,
+          not intended for real use, as the content is basic.
         </p>
         <p>
           The data available is sourced from public data online. It has been
           designed in such a way to make it easy to add new manufacturers, and
-          update the data if it changes over time.
+          update the data if it changes over time. Please see below to find the
+          sources of all information used in this API. All credit to the
+          original authors.
         </p>
       </CardContent>
     </Card>
@@ -127,6 +130,12 @@ const SOURCES: { link: string; desc: string }[] = [
         <CardDescription>Sources of data used in API</CardDescription>
       </CardHeader>
       <CardContent>
+        <p>
+          All data available via this API is provided freely, to comply with the
+          copyright licensing from the sources used. All credit for information
+          belongs to the respective authors, which can be found via the links
+          below.
+        </p>
         <ul class="ml-4">
           {
             SOURCES.map((source) => (
