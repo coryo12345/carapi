@@ -1,7 +1,9 @@
 # Car API
 API that serves info about various car models.
 
-Try it out: https://carapi.fly.dev/api/random.
+Check out the formal documentation with more details here: https://car.dioapi.com/.
+
+Try it out the API: https://carapi.fly.dev/api/random.
 
 ## Data
 Data is acquired by scraping [Wikipedia](https://www.wikipedia.org/) articles for car models.
