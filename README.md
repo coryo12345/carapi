@@ -25,10 +25,6 @@ The scraping script must be run locally to fetch data and make updates to the db
 
 The api is hosted on [fly.io](https://fly.io/), and is written in go, using the fiber web framework.  
 
-## TODO
-* build UI 
-    * with api docs
-    * with UI example to browse cars
 
 ## Opportunities for improvement
 * create / find mappings for body styles and regions. 
